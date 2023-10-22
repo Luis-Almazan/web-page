@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pregunta Importante</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #pregunta {
+            font-size: 24px;
+            margin: 20px;
+        }
+        #botones {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .boton {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        #no {
+            position: absolute;
+            top: 50px; /* Ajusta la posición vertical según tus preferencias */
+            left: 650px;
+        }
+       
+       #si {
+            position: absolute;
+            top: 50px; /* Ajusta la posición vertical según tus preferencias */
+            left: 800px;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div id="pregunta">
+        ¿Quieres ser mi novia?
+    </div>
+    <div id="botones">
+        <button class="boton" id="si">Sí</button>
+        <button class="boton" id="no">No</button>
+    </div>
+
+    <script>
+        document.getElementById("si").addEventListener("click", function() {
+            alert("¡Eso es genial! 😊");
+        });
+
+        document.getElementById("no").addEventListener("click", function() {
+            alert("Oh, entiendo. 😔");
+        });
+    </script>
+
+
+    <script>
+        // Función para mover el botón "No" dentro de un área limitada
+        function moverBotonNo(event) {
+            const botonNo = document.getElementById("no");
+            const maxX = window.innerWidth - botonNo.clientWidth;
+            const maxY = window.innerHeight - botonNo.clientHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            botonNo.style.left = randomX + "px";
+            botonNo.style.top = randomY + "px";
+        }
+
+        // Agrega un manejador de eventos al botón "No" para moverlo cuando el mouse esté sobre él
+        document.getElementById("no").addEventListener("mouseover", moverBotonNo);
+    </script>
+</body>
+</html>
